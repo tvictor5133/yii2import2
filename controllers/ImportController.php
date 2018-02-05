@@ -70,7 +70,7 @@ class ImportController extends Controller{
             $i = 0;
             foreach($product->pictures->picture as $picture){
                 $new_name = time() . $i++ . '.jpg';
-                copy($path . '/' . (string) $picture, Yii::$app->basePath . '\web\images\\' . $new_name);
+                copy($path . '/' . (string) $picture, Yii::$app->basePath . '/web/images/' . $new_name);
                 $image = new Image();
                 $image->product_id = $id;
                 $image->name = $new_name;
