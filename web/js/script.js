@@ -5,7 +5,7 @@ $(document).ready(function(){
            var id = $(this).data('id');
            $(this).parent().detach();
            $.ajax({
-               url: '/product/imgdel',
+               url: '/product/img-del',
                data: {id: id},
                type: 'GET',
                success: function(res){

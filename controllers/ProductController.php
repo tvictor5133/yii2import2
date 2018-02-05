@@ -124,7 +124,7 @@ class ProductController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionImgdel(){
+    public function actionImgDel(){
         $id = Yii::$app->request->get('id');
         if (Yii::$app->request->isAjax){
             $img = Image::findOne($id);

@@ -16,18 +16,22 @@ use yii\widgets\ActiveForm;
         <label class="control-label" for="product-category_id">Родительская категория</label>
         <select id="product-category_id" class="form-control" name="Product[category_id]">
             <option value="0">Самостоятельная категория</option>
-            <?= \app\components\MenuWidget::widget(['model' => $model]) ?>
+            <?= \app\components\MenuWidget::widget(['model' => $model, 'table' => 'category']) ?>
         </select>
     </div>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => '6']) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
+    <?= $form->field($model, 'currency')->textInput() ?>
+
+    <?= $form->field($model, 'url')->textInput() ?>
+
     <?php
-    if (count($imgs)):
+    if (is_array($imgs)):
         echo '<div class="row">';
         foreach($imgs as $img):
             echo '<div class="col-xs-6 col-md-3">

@@ -38,6 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description',
             'price',
+            'currency',
+            'url',
             [
                 'attribute' => 'image',
                 'value' => function($model){

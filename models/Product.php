@@ -12,6 +12,8 @@ use Yii;
  * @property string $name
  * @property string $description
  * @property double $price
+ * @property string $currency
+ * @property string $url
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -45,10 +47,12 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'name', 'price'], 'required'], //!!!!!!!!
+            [['category_id', 'name', 'price', 'currency', 'url'], 'required'], //!!!!!!!!
             [['category_id'], 'integer'],
             [['price'], 'number'],
-            [['name', 'description'], 'string', 'max' => 255],
+            [['name', 'description', 'url'], 'string', 'max' => 255],
+            [['currency'], 'string', 'max' => 3],
+            [['url'], 'url']
         ];
     }
 
@@ -63,7 +67,9 @@ class Product extends \yii\db\ActiveRecord
             'name' => 'Наименование',
             'description' => 'Описание',
             'price' => 'Цена',
-            'image' => 'Картинки'
+            'image' => 'Картинки',
+            'currency' => 'Валюта',
+            'url' => 'Ссылка'
         ];
     }
 }
